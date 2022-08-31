@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    <title>Productos dinamicos</title>
+</head>
+<body>
+    <header class="header-container">
+        <div class="header-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="productos imagen">
+            <h3>Café</h3>
+            <p>$500</p>
+            <button class="testing">Comprar</button>
+        </div>
+
+        <div class="header-item">
+            <img src="https://www.clara.es/medio/2018/11/06/azucar-frutas-platano_bad992c6_1000x1500.jpg" alt="productos imagen">
+            <h3>Platano</h3>
+            <p>$1000</p>
+            <button class="testing">Comprar</button>
+        </div>
+        <div class="header-item">
+            <img src="https://i0.wp.com/www.programapipo.com/wp-content/uploads/2017/01/Fichas-Frutas-3.jpg" alt="productos imagen">
+            <h3>Sandia</h3>
+            <p>$6000</p>
+            <button class="testing">Comprar</button>
+            
+        </div>
+        <div class="header-item">
+            <img src="https://www.herbazest.com/imgs/d/8/7/551784/pera.jpg" alt="productos imagen">
+            <h3>Pera</h3>
+            <p>$5000</p>
+            <button class="testing">Comprar</button>
+        </div>
+
+    </header>
+
+    <section>
+        <table >
+            <tbody class="tabla">
+                <thead>
+                    <th>#</th>
+                    <th>Item</th>
+                    <th>Cantidad</th>
+                    <th>Acción</th>
+                    <th>Precio</th>
+                </thead>
+                
+            </tbody>
+            
+        </table>
+        <p style="
+            display:flex; justify-content: end; letter-spacing: 4px;"
+        >Valor total: $<b id="price"></b></p>
+        
+    </section>
+    
+</body>
+<script src="script.js"></script>
+</html>
