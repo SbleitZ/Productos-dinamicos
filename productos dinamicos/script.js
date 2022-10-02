@@ -4,27 +4,39 @@ const hola = document.querySelector(".header-item")
 const clases = document.getElementsByClassName('testing')
 const tabla = document.querySelector(".tabla")
 let reales = document.getElementsByClassName("header-item")
+let total = document.querySelectorAll(".header-item")
 const price = document.getElementById("price")
 
-
+console.log(total.length)
 let productos = {
     img: 'hola',
-    nombreP: ['Café', 'Platano','Sandia','Pera'],
-    cantidad: [0,0,0,0],//cafe platano sandia pera
-    repeticion: [false,false,false,false],//cafe platano sandia pera,
+    nombreP: [],
+    cantidad: [],//cafe platano sandia pera
+    repeticion: [],//cafe platano sandia pera,
     money: 0
 }
-
+console.log(total[2].firstElementChild.nextElementSibling.innerHTML)
 // console.log(productos)
+n=total.length//cantidad de productos, también modificar la parte de de repeticion y cantidad en el objeto productos
+// console.log("tamaño"+ productos.cantidad.length)
+// productos.cantidad.push(0)
+// productos.repeticion.push(false)
+for (i=0; i<total.length; i++) {//inicialización
+    productos.cantidad.push(0)
+    productos.repeticion.push(false)
+    productos.nombreP.push(total[i].firstElementChild.nextElementSibling.innerHTML)//agrego el nombre del producto como un tipo de constructor
+    //inicializo todos los datos necesarios para ser manipulados
+}
+console.log(productos.repeticion)
 const fragmento = document.createDocumentFragment()
-for(let i = 0;i<4;i++){
+for(let i = 0;i<n;i++){
 
     clases[i].onclick = () =>{
         
         if(productos.repeticion[i]){
             productos.cantidad[i]++
             // al hijo que tenga de nombre cafe se le agrega una cantidad más a sus hermanos
-            console.log(tabla.children)
+                console.log(tabla.children)
             // for(ite in tabla.children){
             //     if(tabla.children[ite].firstElementChild[1].innerHTML == productos.nombreP[ite]){
             //         productos.cantidad[ite]++
@@ -61,7 +73,7 @@ for(let i = 0;i<4;i++){
                     productos.money -= parseInt(eliminar.nextElementSibling.innerHTML.split('$')[1])
                     price.innerHTML = productos.money
                     tabla.removeChild(agregar.parentElement)
-                    for(let r=0;r<4;r++){//cantidad de productos
+                    for(let r=0;r<n;r++){//cantidad de productos
                         if(agregar.previousElementSibling.previousElementSibling.innerHTML == productos.nombreP[r]){
                             // console.log("cafesito borradito")
                             productos.repeticion[r] = false;
@@ -76,6 +88,7 @@ for(let i = 0;i<4;i++){
                     price.innerHTML = productos.money
                 }
             }
+            
             tdCantidad.innerHTML = productos.cantidad[i];
             tdIMG.innerHTML = reales[i].children[0].outerHTML
             tdP.innerHTML = reales[i].children[1].innerHTML
@@ -85,7 +98,6 @@ for(let i = 0;i<4;i++){
             productos.money += parseInt(reales[i].children[2].innerHTML.split('$')[1])
             price.innerHTML = productos.money
             // console.log(productos.money)
-
             // td.outerHTML = `${productos.img}`
             tr.appendChild(tdIMG)
             tr.appendChild(tdP)
